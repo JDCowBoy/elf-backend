@@ -1,12 +1,29 @@
-#������������
-server:
-  #�˿�
-  port: 80
-  tomcat:
-    uri-encoding: utf-8
+# 工程相关配置
+elf-backend:
+  # 名称
+  name: elf-backend
+  #版本
+  version: 1.0.0
 
-#spring����
+# 开发环境配置
+server:
+  # 端口
+  port: 80
+  servlet:
+    # 应用的访问路径
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    max-threads: 800
+    # Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 30
+
+
+#spring 相关配置
 spring:
+  # 模板引擎
   thymeleaf:
     mode: HTML
     encoding: utf-8

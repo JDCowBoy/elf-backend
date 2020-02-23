@@ -15,7 +15,7 @@
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow: hidden">
     <div id="wrapper">
-        <!--左侧导航-->
+        <!--左侧导航开始-->
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
@@ -27,21 +27,19 @@
                     <li>
                         <a href="#">
                             <i class="fa fa-home"></i>
-                            <span class="nav-label">首页</span>
+                            <span class="nav-label">主页</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a class="menuItem" th:href="@{#}">了解elf-backend</a>
-                            </li>
+                            <li><a class="menuItem" th:href="@{/system/main}">了解若依</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </nav>
         <!--左侧导航结束-->
-        <!--右侧部分-->
-        <div id="page-wraper" class="gray-bg dashbard-1">
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
@@ -50,54 +48,30 @@
                         </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-right welcome-message">
-                        <li><a title="关于我们" href="http://doc.ruoyi.vip" target="_blank"><i class="fa fa-question-circle"></i> 开发文档</a></li>
-                        <li><a title="全屏显示" href="javascript:void(0)" id="fullScreen"><i class="fa fa-arrows-alt"></i> 全屏显示</a></li>
-                        <li class="dropdown user-menu">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-hover="dropdown">
-                                <img th:src="@{/images/user.jpg}" class="user-image">
-                                <span class="hidden-xs">KaoHo</span>
-                            </a>
-                        </li>
+                        <li><a title="关于我们" href="javascript:void(0)"><i class="fa fa-video-camera"></i>关于我们</a></li>
+                        <li><a title="关于我们" href="javascript:void(0)"><i class="fa fa-question-circle"></i>关于我们</a></li>
+                        <li><a title="全屏显示" href="javascript:void(0)" id="fullScreen"><i class="fa fa-arrows-alt"></i>全屏显示</a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="row content-tabs">
-                <button class="roll-nav roll-left tabLeft">
-                    <i class="fa fa-backward"></i>
-                </button>
-                <nav class="page-tabs menuTabs">
-                    <div class="page-tabs-content">
-                        <a href="javascript:;" class="active menuTab" data-id="/system/main">首页</a>
-                    </div>
-                </nav>
-                <button class="roll-nav roll-right tabRight">
-                    <i class="fa fa-forward"></i>
-                </button>
-                <a href="javascript:void(0);" class="roll-nav roll-right tabReload"><i class="fa fa-refresh"></i> 刷新</a>
-            </div>
-            <!--pgae content-->
-            <div class="row mainContent" id="content-main">
-                <iframe class="RuoYi_iframe" name="iframe0" width="100%" height="100%" data-id="/system/main"
-                        th:src="@{javascript:viod(0);}" frameborder="0" seamless></iframe>
-            </div>
-            <a id="ax_close_max" class="ax_close_max" href="#" title="关闭全屏"> <i class="fa fa-times-circle-o"></i> </a>
+
             <div class="footer">
                 <div class="pull-right">© [[${copyrightYear}]] KaoHo Copyright </div>
             </div>
         </div>
     </div>
 
-<!-- 全局js -->
-<script th:src="@{/js/jquery.min.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
-<script th:src="@{/js/jquery.contextMenu.min.js}"></script>
-<script th:src="@{/js/plugins/blockUI/jquery.blockUI.js}"></script>
-<script th:src="@{/js/plugins/layer/layer.min.js}"></script>
-<script th:src="@{/js/plugins/ruoyi/js/ry-ui.js?v=4.1.0}"></script>
-<script th:src="@{/js/plugins/ruoyi/js/common.js?v=4.1.0}"></script>
-<script th:src="@{/js/plugins/ruoyi/index.js}"></script>
-<script th:src="@{/js/jquery.fullscreen.js}"></script>
+    <!-- 全局js -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+    <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+    <script th:src="@{/js/jquery.contextMenu.min.js}"></script>
+    <script th:src="@{/js/plugins/blockUI/jquery.blockUI.js}"></script>
+    <script th:src="@{/js/plugins/layer/layer.min.js}"></script>
+    <script th:src="@{/js/plugins/ruoyi/js/ry-ui.js?v=4.1.0}"></script>
+    <script th:src="@{/js/plugins/ruoyi/js/common.js?v=4.1.0}"></script>
+    <script th:src="@{/js/plugins/ruoyi/index.js}"></script>
+    <script th:src="@{/js/jquery.fullscreen.js}"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <link th:href="@{/css/elf-skins.css}" rel="stylesheet" />
     <link th:href="@{/js/plugins/ruoyi/css/ry-ui.css?v=4.1.0}" rel="stylesheet"/>
 </head>
-<body class="fixed-sidebar full-height-layout gray-bg" style="overflow: hidden">
+<body class="fixed-sidebar full-height-layout gray-bg theme-dark skin-blue" style="overflow: hidden">
     <div id="wrapper">
         <!--左侧导航开始-->
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -101,16 +101,6 @@
             // 排除非左侧菜单链接
             var excludesUrl = ["/system/user/profile"];
 
-            // 本地主题优先，未设置取系统配置
-            if($.common.isNotEmpty(skin)){
-                $("body").addClass(skin.split('|')[0]);
-                $("body").addClass(skin.split('|')[1]);
-            } else {
-                var sideTheme = [[${@config.getKey('sys.index.sideTheme')}]];
-                var skinName = [[${@config.getKey('sys.index.skinName')}]];
-                $("body").addClass(sideTheme);
-                $("body").addClass(skinName);
-            }
 
             /* 用户管理-重置密码 */
             function resetPwd() {

@@ -18,8 +18,13 @@ public class IndexController extends BaseController
 //    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index()
     {
-        System.out.println("!!!!!!!!!!!!");
         return "index";
+    }
+
+    @GetMapping(value = "/main")
+    public String main()
+    {
+        return "main";
     }
 
 }

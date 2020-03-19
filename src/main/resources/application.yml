@@ -33,4 +33,9 @@ spring:
   thymeleaf:
     mode: HTML
     encoding: utf-8
-    cache: false
+    cache: false #页面不加载缓存,修改即时生效
+  devtools:
+    restart:
+      enabled: true # 开启热部署
+      additional-paths: src/main/java # 重启目录
+      exclude: WEB-INF/**

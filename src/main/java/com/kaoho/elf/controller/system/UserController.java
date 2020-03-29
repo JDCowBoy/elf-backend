@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * UserController
@@ -29,6 +30,7 @@ public class UserController
     public TableInfo getUserList(UserInfo userInfo)
     {
         TableInfo tableInfo = new TableInfo();
+        List<UserInfo> userInfoList = userInfoService.getUserList(userInfo);
         return tableInfo;
     }
 }

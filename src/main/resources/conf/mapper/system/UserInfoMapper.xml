@@ -4,7 +4,7 @@
     <resultMap id="BaseResult" type="UserInfo">
         <id     column="user_id"       property="id"/>
         <result column="username"      property="username"/>
-        <result column="telephone"     property="telephone"/>
+        <result column="telephone"     property="telephoneNo"/>
         <result column="address"       property="address"/>
         <result column="email"         property="email"/>
         <result column="create_time"   property="createTime"/>
@@ -23,7 +23,7 @@
 
     <select id="getUserList" parameterType="UserInfo" resultMap="BaseResult">
         <include refid="BaseSql"/>
-        where eui.is_delete
+        where eui.is_delete = 0
         <if test="username != null and username != ''">
             and eui.username = #{username}
         </if>

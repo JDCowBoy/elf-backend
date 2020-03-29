@@ -48,6 +48,12 @@ mybatis:
   # 搜索指定包别名
   typeAliasesPackage: com.kaoho.elf.domains
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
-  mapperLocations: classpath:conf/mapper/*.xml
+  mapperLocations: classpath:conf/mapper/**/*Mapper.xml
   # 加载全局的配置文件
   configLocation: classpath:conf/mybatis-config.xml
+
+
+logging:
+  level:
+    com.kaoho.elf: debug
+    org.springframework: info

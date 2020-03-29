@@ -20,6 +20,6 @@ public class UserInfoServiceImpl implements UserInfoService
     @Override
     public List<UserInfo> getUserList(UserInfo userInfo)
     {
-        return null;
+        return userInfoMapper.getUserList(userInfo);
     }
 }

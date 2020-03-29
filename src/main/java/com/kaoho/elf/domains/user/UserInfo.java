@@ -13,6 +13,8 @@ public class UserInfo extends BaseDomain
 
     private int sex;
 
+    private String email;
+
     private String address;
 
     public String getUsername()
@@ -53,5 +55,15 @@ public class UserInfo extends BaseDomain
     public void setAddress(String address)
     {
         this.address = address;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
     }
 }

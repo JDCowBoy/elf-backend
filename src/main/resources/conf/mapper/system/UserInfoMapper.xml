@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaoho.elf.mapper.user.UserInfoMapper">
+    <resultMap id="BaseResult" type="UserInfo">
+        <id     column="user_id"       property="id"/>
+        <result column="username"      property="username"/>
+        <result column="telephone"     property="telephone"/>
+        <result column="address"       property="address"/>
+        <result column="email"         property="email"/>
+        <result column="create_time"   property="createTime"/>
+        <result column="create_user"   property="createUser"/>
+        <result column="update_time"   property="updateTime"/>
+        <result column="update_user"   property="updateUser"/>
+        <result column="is_delete"     property="isDelete"/>
+    </resultMap>
+
+    <sql id="BaseSql">
+        select
+          eui.user_id, eui.username, eui.telephone, eui.address, eui.email
+        from
+          elf_user_info eui
+    </sql>
+
+    <select id="getUserList" parameterType="UserInfo" resultMap="BaseResult">
+        <include refid="BaseSql"/>
+        where eui.is_delete
+        <if test="username != null and username != ''">
+            and eui.username = #{username}
+        </if>
+    </select>
+</mapper>

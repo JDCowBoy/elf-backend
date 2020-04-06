@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kaoho.elf.domains.common.BaseDomain;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * UserInfo
@@ -30,6 +31,8 @@ public class UserInfo extends BaseDomain
     private String email;
 
     private String address;
+
+    private Map<String, Object> params;
 
     public String getUsername()
     {
@@ -99,5 +102,15 @@ public class UserInfo extends BaseDomain
     public void setEmail(String email)
     {
         this.email = email;
+    }
+
+    public Map<String, Object> getParams()
+    {
+        return params;
+    }
+
+    public void setParams(Map<String, Object> params)
+    {
+        this.params = params;
     }
 }

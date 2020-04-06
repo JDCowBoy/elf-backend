@@ -21,12 +21,21 @@ public class UserController extends BaseController
     @Resource
     private UserInfoService userInfoService;
 
+    /**
+     * 用户管理首页
+     * @return
+     */
     @GetMapping("/index")
     public String index()
     {
         return "/system/user/user";
     }
 
+    /**
+     * 查询用户列表
+     * @param userInfo
+     * @return
+     */
     @PostMapping("/getUserList")
     @ResponseBody
     public TableDataInfo getUserList(UserInfo userInfo)
@@ -47,7 +56,7 @@ public class UserController extends BaseController
     }
 
     /**
-     *
+     * 用户保存
      * @param userInfo
      * @return
      */

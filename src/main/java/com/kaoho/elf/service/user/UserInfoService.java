@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserInfoService
 {
     public List<UserInfo> getUserList(UserInfo userInfo);
+
+    public int doSave(UserInfo userInfo);
 }

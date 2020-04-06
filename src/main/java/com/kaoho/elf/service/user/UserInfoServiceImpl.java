@@ -22,4 +22,10 @@ public class UserInfoServiceImpl implements UserInfoService
     {
         return userInfoMapper.getUserList(userInfo);
     }
+
+    @Override
+    public int doSave(UserInfo userInfo)
+    {
+        return userInfoMapper.insertUser(userInfo);
+    }
 }

@@ -1,6 +1,9 @@
 package com.kaoho.elf.domains.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kaoho.elf.domains.common.BaseDomain;
+
+import java.util.Date;
 
 /**
  * UserInfo
@@ -11,7 +14,18 @@ public class UserInfo extends BaseDomain
 
     private String telephoneNo;
 
+    /**
+     * 性别：0 男, 1 女
+     */
     private int sex;
+
+    private int userStatus;
+
+    /**
+     * 生日
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date birthday;
 
     private String email;
 
@@ -45,6 +59,26 @@ public class UserInfo extends BaseDomain
     public void setSex(int sex)
     {
         this.sex = sex;
+    }
+
+    public int getUserStatus()
+    {
+        return userStatus;
+    }
+
+    public void setUserStatus(int userStatus)
+    {
+        this.userStatus = userStatus;
+    }
+
+    public Date getBirthday()
+    {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday)
+    {
+        this.birthday = birthday;
     }
 
     public String getAddress()

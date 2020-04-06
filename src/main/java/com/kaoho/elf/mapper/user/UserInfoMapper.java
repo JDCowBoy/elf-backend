@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserInfoMapper
 {
     public List<UserInfo> getUserList(UserInfo userInfo);
+
+    public int insertUser(UserInfo userInfo);
 }

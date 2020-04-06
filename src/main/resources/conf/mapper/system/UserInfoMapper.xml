@@ -4,6 +4,9 @@
     <resultMap id="BaseResult" type="UserInfo">
         <id     column="user_id"       property="id"/>
         <result column="username"      property="username"/>
+        <result column="sex"           property="sex"/>
+        <result column="user_status"   property="userStatus"/>
+        <result column="birthday"      property="birthday"/>
         <result column="telephone"     property="telephoneNo"/>
         <result column="address"       property="address"/>
         <result column="email"         property="email"/>
@@ -16,7 +19,7 @@
 
     <sql id="BaseSql">
         select
-          eui.user_id, eui.username, eui.telephone, eui.address, eui.email
+          eui.user_id, eui.username, eui.sex, eui.user_status, eui.birthday, eui.telephone, eui.address, eui.email, eui.create_time
         from
           elf_user_info eui
     </sql>
@@ -24,8 +27,30 @@
     <select id="getUserList" parameterType="UserInfo" resultMap="BaseResult">
         <include refid="BaseSql"/>
         where eui.is_delete = 0
-        <if test="username != null and username != ''">
-            and eui.username = #{username}
-        </if>
+        <!--<if test="username != null and username != ''">-->
+            <!--and eui.username = #{username}-->
+        <!--</if>-->
     </select>
+
+    <insert id="insertUser" parameterType="UserInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into elf_user_info(
+            <if test="id != '' and id != 0">user_id,</if>
+            <if test="username != '' and username != null">username,</if>
+            <if test="sex != '' and sex != null">sex,</if>
+            <if test="telephoneNo != '' and telephoneNo != null">telephone,</if>
+            <if test="address != '' and address != null">address,</if>
+            <if test="email != '' and email != null">email,</if>
+            create_time
+        )
+        values
+        (
+            <if test="id != '' and id != 0">#{id},</if>
+            <if test="username != '' and username != null">#{username},</if>
+            <if test="sex != '' and sex != null">#{sex},</if>
+            <if test="telephoneNo != '' and telephoneNo != null">#{telephoneNo},</if>
+            <if test="address != '' and address != null">#{address},</if>
+            <if test="email != '' and email != null">#{email},</if>
+            sysdate()
+        )
+    </insert>
 </mapper>

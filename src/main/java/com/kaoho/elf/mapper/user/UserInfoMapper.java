@@ -11,4 +11,10 @@ public interface UserInfoMapper
     public List<UserInfo> getUserList(UserInfo userInfo);
 
     public int insertUser(UserInfo userInfo);
+
+    public UserInfo getUserInfoById(Long id);
+
+    public int updateUser(UserInfo userInfo);
+
+    public int deleteUser(String ids);
 }

@@ -9,11 +9,25 @@ import com.kaoho.elf.domains.common.TableDataInfo;
 import com.kaoho.elf.util.SqlUtils;
 import com.kaoho.elf.util.TableUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class BaseController
 {
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder)
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
+
     //设置分页请求数据
     protected void buildPageRequestData()
     {

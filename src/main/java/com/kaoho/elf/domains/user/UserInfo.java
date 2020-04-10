@@ -25,7 +25,7 @@ public class UserInfo extends BaseDomain
     /**
      * 生日
      */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
     private Date birthday;
 
     private String email;

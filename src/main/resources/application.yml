@@ -41,6 +41,9 @@ spring:
       exclude: WEB-INF/**
   profiles:
     active: druid
+  output:
+    ansi:
+      enabled: always #日志彩色输出
 
 
 # MyBatis

@@ -9,4 +9,10 @@ public interface UserInfoService
     public List<UserInfo> getUserList(UserInfo userInfo);
 
     public int doSave(UserInfo userInfo);
+
+    public UserInfo getUserInfoById(Long id);
+
+    public int updateUserInfo(UserInfo userInfo);
+
+    public int deleteUser(String ids);
 }

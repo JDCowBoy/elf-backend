@@ -41,6 +41,38 @@
         </if>
     </select>
 
+    <select id="getUserInfoById" parameterType="java.lang.Long" resultMap="BaseResult">
+        <include refid="BaseSql"/>
+            where is_delete = 0
+            and eui.user_id = #{id}
+    </select>
+
+    <update id="updateUser" parameterType="UserInfo" >
+        update elf_user_info
+        <set>
+            <if test="username != null and username != ''">username = #{username},</if>
+            <if test="address != null and address != ''">address = #{address},</if>
+            <if test="birthday != null">birthday = #{birthday},</if>
+            <if test="email != null and email != ''">email = #{email},</if>
+            <if test="telephoneNo != null and telephoneNo != ''">telephone = #{telephoneNo},</if>
+            update_time = sysdate()
+        </set>
+        where user_id = #{id}
+    </update>
+
+    <!--<delete id="deleteUser" parameterType="java.lang.String">-->
+        <!--delete from elf_user_info where user_id = #{id}-->
+    <!--</delete>-->
+    <!--改为非物理删除-->
+    <delete id="deleteUser" parameterType="java.lang.String">
+        update elf_user_info
+        <set>
+            update_time = sysdate(),
+            is_delete = 1
+        </set>
+        where user_id = #{id}
+    </delete>
+
     <insert id="insertUser" parameterType="UserInfo" useGeneratedKeys="true" keyProperty="id">
         insert into elf_user_info(
             <if test="id != '' and id != 0">user_id,</if>
@@ -48,6 +80,7 @@
             <if test="sex != '' and sex != null">sex,</if>
             <if test="telephoneNo != '' and telephoneNo != null">telephone,</if>
             <if test="address != '' and address != null">address,</if>
+            <if test="birthday != null">birthday,</if>
             <if test="email != '' and email != null">email,</if>
             create_time
         )
@@ -58,6 +91,7 @@
             <if test="sex != '' and sex != null">#{sex},</if>
             <if test="telephoneNo != '' and telephoneNo != null">#{telephoneNo},</if>
             <if test="address != '' and address != null">#{address},</if>
+            <if test="birthday != null">#{birthday},</if>
             <if test="email != '' and email != null">#{email},</if>
             sysdate()
         )

@@ -38,14 +38,14 @@
                 </form>
             </div>
 
-            <div class="btn-group-sm hidden-xs" id="toolbar" role="group">
-                <a class="btn btn-success" onclick="$.operate.add()" >
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()">
                     <i class="fa fa-plus"></i> 新增
                 </a>
-                <a class="btn btn-primary btn-edit disabled" onclick="$.operate.edit()">
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()">
                     <i class="fa fa-edit"></i> 修改
                 </a>
-                <a class="btn btn-danger btn-del disabled" onclick="$.operate.removeAll()">
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()">
                     <i class="fa fa-remove"></i> 删除
                 </a>
                 <a class="btn btn-warning" onclick="$.table.exportExcel()">
@@ -74,6 +74,8 @@
             {
                 url: "/system/user/getUserList",
                 createUrl: "/system/user/add",
+                updateUrl: "/system/user/edit/{id}",
+                removeUrl: "/system/user/delete",
                 sortName: "createTime",
                 sortOrder: "asc",
                 modalName: "用户",
@@ -85,7 +87,8 @@
                 {
                     field: 'id',
                     title: '用户ID',
-                    align: 'center'
+                    align: 'center',
+                    sortable: true
                 },
                 {
                     field: 'username',
@@ -163,7 +166,7 @@
             var sex = row.sex;
             if ("1" == sex) {
                 // return '<a class="btn btn-info" href="javascript:void(0)><i class="fa fa-key"></i>女</a>"';
-                return '<span class="badge badge-primary">女</span>'
+                return '<span class="badge badge-warning">女</span>'
             }else if ("0" == sex){
                 // return '<a class="btn btn-info" href="javascript:void(0)><i class="fa fa-key"></i>男</a>"';
                 return '<span class="badge badge-primary">男</span>'
@@ -182,7 +185,7 @@
             if (1 == status){
                 return '<span class="badge badge-primary">生效</span>'
             }else if (0 == status){
-                return '<span class="badge badge-primary">禁用</span>'
+                return '<span class="badge badge-danger">禁用</span>'
             }else{
                 return '<span class="badge badge-primary">未知</span>'
             }

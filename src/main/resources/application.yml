@@ -2,13 +2,17 @@
 elf-backend:
   # 名称
   name: elf-backend
+  # 作者
+  author: KaoHo
   #版本
   version: 1.0.0
-
+    # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
+  profile: D:/ruoyi/uploadPath
 # 开发环境配置
+
 server:
   # 端口
-  port: 8080
+  port: 8081
   servlet:
     # 应用的访问路径
     context-path: /

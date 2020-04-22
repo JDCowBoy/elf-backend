@@ -43,6 +43,18 @@
                             <li><a class="menuItem" th:href="@{/system/user/index}">用户管理</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-bug"></i>
+                            <span class="nav-label">质量管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="menuItem" th:href="@{/quality/project/index}">项目管理</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -85,7 +97,7 @@
             </div>
 
             <div class="footer">
-                <div class="pull-right">© [[${copyrightYear}]] KaoHo Copyright </div>
+                <div th:align="center">© Copyright: [[${author}]] , version: [[${version}]] </div>
             </div>
         </div>
     </div>
@@ -116,7 +128,8 @@
             $('a[href$="' + url + '"]').parent("li").addClass("selected").parents("li :not(.user-panel)").addClass("active").end().parents("ul").addClass("in");
         }
 
-        $(function() {
+        $(function()
+        {
             if($.common.equals("history", mode) && window.performance.navigation.type == 1) {
                 var url = storage.get('publicPath');
                 if ($.common.isNotEmpty(url)) {
